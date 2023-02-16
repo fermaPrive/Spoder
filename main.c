@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
-#include <errno.h>
 #include <string.h>
+#include <errno.h>
+#include <netdb.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
 
 #include "utilities.h"
 
@@ -109,7 +113,17 @@ int main(int argc, char **argv)
 
     char *url = argv[optind];
 
+
+    if (check_url_protocol(url) < 0)
+        error_exit("Please us a valid protocol (Http or Https)");
+
+
+    //Parse the url
+
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(hints));
     
+
 
     return EXIT_SUCCESS;
 

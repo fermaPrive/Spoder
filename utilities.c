@@ -10,7 +10,14 @@
 */
 int check_url_protocol(const char *url)
 {
-    
 
-    return -1;
+    if(!(strncmp(url, "http://", strlen("http://")) == 0 || strncmp(url, "https://", strlen("https://")) == 0)) {
+        return -1;
+    }
+
+    return 1;
 }
+
+
+
+//methods for linked list

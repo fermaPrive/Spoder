@@ -1,0 +1,1 @@
+//class to custom verify ssl certificate
